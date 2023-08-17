@@ -29,7 +29,7 @@ exports.getBlog = async (req, res) => {
      try {
         const result = await BlogModel.findById({_id:query})
 
-        res.status(200).json({status:"Blog  found success",data:result})
+        res.status(200).json({status:"Blog  found success",data:[result]})
 
     } catch (error) {
         res.status(400).json({status:"Blog found failed",error:error.message})
