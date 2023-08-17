@@ -6,6 +6,9 @@ router.post("/create-blog", blogCon.createBlog)
 router.get("/all-blogs",blogCon.blogList)
 router.get("/get-blog/:id", blogCon.getBlog)
 router.post("/update-blog/:id", blogCon.updateBlog)
-router.delete("/delete-blog/:id",blogCon.delete)
+router.delete("/delete-blog/:id", blogCon.delete)
+
+// Searching 
+router.get('/search/:keyword', blogCon.searchBlogs);
 
 module.exports = router;

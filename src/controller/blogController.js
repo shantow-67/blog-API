@@ -61,3 +61,18 @@ exports.delete = async (req, res) => {
         res.status(400).json({status:"Blog update failed",error:error.message})
     }
 }
+
+
+// Search 
+
+exports.searchBlogs = async (req, res) => {
+    const { keyword } = req.params;
+
+    try {
+        const searchResults = await BlogModel.find({ title: { $regex: keyword, $options: 'i' } });
+        res.status(200).json({ status: 'success', data: searchResults });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ status: 'fail', message: 'searching error' });
+    }
+};
