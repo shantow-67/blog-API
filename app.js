@@ -36,7 +36,7 @@ mongoose.connect("mongodb+srv://kamrulnew1312:HkEkrzYz8Uw5QPpm@cluster0.zxl9kam.
 // router handle
 app.use("/api/v1",router);
 
-// fault route handle
+
 app.use("*",(req,res)=>{
     res.status(404).json({status:"wrong search",data:"Not Found"})
 });
